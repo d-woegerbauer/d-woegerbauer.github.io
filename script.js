@@ -1,1 +1,0 @@
-alert("Herzlich willkommen auf meiner Hompage");
