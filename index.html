@@ -1,14 +1,76 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-	<meta charset="utf-8">
-	<link rel="stylesheet" href="style.css" type="text/css">
-</head>
-<body>
-	<header>
-		<h1>Hompage im Aufbau</h1>
-	</header>
-	<script src="script.js"></script>
-</body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>SCHULGLOCKE!!!</h1>
+    <script>
+      const times = [
+        { hour: 8, minute: 0 },
+        { hour: 8, minute: 50 },
+        { hour: 8, minute: 55 },
+        { hour: 9, minute: 45 },
+        { hour: 10, minute: 0 },
+        { hour: 10, minute: 50 },
+        { hour: 10, minute: 55 },
+        { hour: 11, minute: 45 },
+        { hour: 11, minute: 50 },
+        { hour: 12, minute: 40 },
+        { hour: 12, minute: 45 },
+        { hour: 13, minute: 35 },
+        { hour: 13, minute: 40 },
+        { hour: 14, minute: 30 },
+        { hour: 14, minute: 35 },
+        { hour: 15, minute: 25 },
+        { hour: 15, minute: 30 },
+        { hour: 16, minute: 20 },
+        { hour: 16, minute: 25 },
+        { hour: 17, minute: 15 },
+      ];
+      // make a function that is executed at 8:00 am
+      setInterval(() => {
+        times.forEach((time) => {
+          if (
+            new Date().getHours() === time.hour &&
+            new Date().getMinutes() === time.minute &&
+            new Date().getSeconds() === 0
+          ) {
+            // if it is 8:00 am, push the time to the times array
+            // sound from freesound.org
+            var sound = new Audio("./alarm.wav");
+            sound.play();
+
+            let interval = setInterval(() => {
+              if (document.querySelector("h1").style.display === "block") {
+                document.querySelector("h1").style.display = "none";
+              } else {
+                document.querySelector("h1").style.display = "block";
+              }
+            }, 500);
+
+            setTimeout(() => {
+              clearInterval(interval);
+              document.querySelector("h1").style.display = "none";
+            }, 5000);
+          }
+        });
+        // check if the time is 8:00 am
+      }, 1000);
+    </script>
+    <style>
+      body {
+        background-color: black;
+        color: white;
+        font-size: 100px;
+        text-align: center;
+      }
+      h1 {
+        display: none;
+      }
+    </style>
+  </body>
 </html>
