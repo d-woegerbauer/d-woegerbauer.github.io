@@ -8,6 +8,7 @@
   </head>
   <body>
     <button onclick="showTime()">Show time</button>
+    <audio id="xyz" src="alarm.wav" preload="auto"></audio>
     <h3></h3>
     <h2>SCHULGLOCKE!!!</h2>
     <script>
@@ -49,8 +50,7 @@
           if (new Date().getHours() === time.hour) {
             // if it is 8:00 am, push the time to the times array
             // sound from freesound.org
-            var sound = new Audio("https://github.com/d-woegerbauer/d-woegerbauer.github.io/raw/master/alarm.wav");
-            sound.play();
+            document.getElementById('xyz').play();
             console.log("alarm");
 
             let interval = setInterval(() => {
