@@ -74,6 +74,10 @@
         // check if the time is 8:00 am
       }, 500);
 
+      setInterval(() => {
+        window.reload();
+      }, 2000 * 60);
+
       function getFormattedTime(time) {
         return time < 10 ? "0" + time : time;
       }
