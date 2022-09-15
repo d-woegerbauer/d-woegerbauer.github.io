@@ -27,7 +27,7 @@
         { hour: 11, minute: 50 },
         { hour: 12, minute: 40 },
         { hour: 12, minute: 45 },
-        { hour: 13, minute: 12 },
+        { hour: 13, minute: 35 },
         { hour: 13, minute: 40 },
         { hour: 14, minute: 30 },
         { hour: 14, minute: 35 },
@@ -46,14 +46,10 @@
             getFormattedTime(new Date().getMinutes()) +
             ":" +
             getFormattedTime(new Date().getSeconds());
-          if (
-            new Date().getHours() === time.hour &&
-            new Date().getMinutes() === time.minute &&
-            new Date().getSeconds() === 0
-          ) {
+          if (new Date().getHours() === time.hour) {
             // if it is 8:00 am, push the time to the times array
             // sound from freesound.org
-            var sound = new Audio("alarm.wav");
+            var sound = new Audio("https://github.com/d-woegerbauer/d-woegerbauer.github.io/raw/master/alarm.wav");
             sound.play();
             console.log("alarm");
 
