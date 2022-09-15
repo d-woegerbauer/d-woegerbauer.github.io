@@ -18,8 +18,26 @@
   <script>
     function showTime() {
       document.querySelector("h3").style.display = "block";
-      document.getElementById("videoToPlay").src = "v.mp4";
-      document.getElementById("videoToPlay").style.display = "none";
+      // document.getElementById("videoToPlay").src = "v.mp4";
+      // document.getElementById("videoToPlay").style.display = "none";
+
+
+      //change backgoround color of body to white
+      // document.body.style.backgroundColor = "white";
+
+      let bool = false;
+      setInterval(() => {
+
+        if (bool) {
+          document.querySelector("body").style.backgroundColor = "white";
+          console.log("white");
+        } else {
+          document.querySelector("body").style.backgroundColor = "black";
+          console.log("black");
+        }
+        bool = !bool;
+
+      }), 5000;
     }
 
     const times = [{
@@ -155,17 +173,16 @@
       text-align: center;
     }
 
-    
-        @font-face {
-          font-family: clock;
-          src: url(DS-DIGI.TTF);
-        }
+    @font-face {
+      font-family: clock;
+      src: url(DS-DIGI.TTF);
+    }
+
     h2,
     h3 {
       font-family: "clock", sans-serif;
       display: none;
     }
-
   </style>
 </body>
 
