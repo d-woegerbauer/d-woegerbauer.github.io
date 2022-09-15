@@ -7,8 +7,17 @@
     <title>Document</title>
   </head>
   <body>
-    <button onclick="showTime()">Show time</button>
+    <button onclick="showTime()">Show time3</button>
     <audio id="xyz" src="alarm.wav" preload="auto"></audio>
+    <iframe
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/2Aa6pLhrYtI"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
     <h3></h3>
     <h2>SCHULGLOCKE!!!</h2>
     <script>
@@ -50,7 +59,7 @@
           if (new Date().getHours() === time.hour) {
             // if it is 8:00 am, push the time to the times array
             // sound from freesound.org
-            document.getElementById('xyz').play();
+            document.getElementById("xyz").play();
             console.log("alarm");
 
             let interval = setInterval(() => {
