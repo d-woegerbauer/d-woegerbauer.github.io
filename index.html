@@ -8,20 +8,26 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <div class="map-info-layout">
-        <div class="usa-map-layout">
-            <img class="usa-map" src="USCanadaMap.svg" alt="US Canada Map"/>
-            <div class="map-points">
+    <div class="map-slider-layout">
+        <div class="map-info-layout">
+            <div class="usa-map-layout">
+                <img class="usa-map" src="USCanadaMap.svg" alt="US Canada Map"/>
+                <div class="map-points">
+                </div>
+            </div>
+            <div class="info-layout">
+                <h2 class="info-headline">university name</h2>
+                <p class="info-content">
+                    university description
+                </p>
             </div>
         </div>
-        <div class="info-layout">
-            <h1 class="info-headline">university name</h1>
-            <p class="info-content">
-                university description
-            </p>
+        <p>Year: <span id="demo"></span></p>
+        <div class="slider-layout">
+            <p>1945</p>
+            <input type="range" min="1945" max="2025" value="1990" class="slider" id="myRange">
+            <p>2025</p>
         </div>
     </div>
-    <input type="range" min="1945" max="2025" value="1990" class="slider" id="myRange">
-    <p>Year: <span id="demo"></span></p>
 </body>
 </html>
