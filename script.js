@@ -122,23 +122,23 @@ const elem = document.querySelector('.usa-map-layout');
 const LOAD_STARTYEAR = 1990;
 
 // // Attach mousemove event
-elem.addEventListener('click', function(event){
+// elem.addEventListener('click', function(event){
 
-   // Get the target
-   const target = event.target;
+//    // Get the target
+//    const target = event.target;
 
-   // Get the bounding client
-   const rect = target.getBoundingClientRect();
+//    // Get the bounding client
+//    const rect = target.getBoundingClientRect();
 
-   const elementWith = elem.offsetWidth;
-   const elementHeight = elem.offsetHeight;
+//    const elementWith = elem.offsetWidth;
+//    const elementHeight = elem.offsetHeight;
 
-   // Get X & Y coordinates
-   let xPos = event.clientX - rect.left;
-   let yPos = event.clientY - rect.top;
+//    // Get X & Y coordinates
+//    let xPos = event.clientX - rect.left;
+//    let yPos = event.clientY - rect.top;
 
-   alert(xPos/elementWith + ";" +  yPos/elementHeight);
-});
+//    alert(xPos/elementWith + ";" +  yPos/elementHeight);
+// });
 
 let points = mapCSV.split("\n").filter(line => line.startsWith("DONE")).map((line, index) => {
    const lineArray = line.split("	");
@@ -166,8 +166,6 @@ let points = mapCSV.split("\n").filter(line => line.startsWith("DONE")).map((lin
    };
 });
 
-console.log(points);
-
 showUniversities();
 
 
@@ -193,12 +191,20 @@ function showUniversities() {
 }
 
 function showUniversitiesForYear(year) {
-   points.filter(point => point.startYear <= year && year <= point.endYear).forEach((point) => {
+   points.filter(point => point.startYear <= year).forEach((point) => {
       document.querySelector(".map-pointer-" + point.id).style.display = "inline-block";
    });
 
-   points.filter(point => point.startYear > year || year > point.endYear).forEach((point) => {
+   points.filter(point => point.startYear > year).forEach((point) => {
       document.querySelector(".map-pointer-" + point.id).style.display = "none";
+   });
+
+   points.filter(point => year <= point.endYear).forEach((point) => {
+      document.querySelector(".map-pointer-" + point.id).classList.remove("faded");
+   });
+
+   points.filter(point => year > point.endYear).forEach((point) => {
+      document.querySelector(".map-pointer-" + point.id).classList.add("faded");
    });
 }
 
@@ -213,36 +219,45 @@ function showUniversityDetails(universityId) {
 
    let content = universityInformation.information;
 
-   content += `<br><br>Year Info: ${universityInformation.startYear} - ${universityInformation.endYear == 2200 ? "now" : universityInformation.endYear}`;
+   content += `<span>Year Info: ${universityInformation.startYear} - ${universityInformation.endYear == 2200 ? "now" : universityInformation.endYear}`;
 
    if(universityInformation.yearInformation) {
       content += ` (${universityInformation.yearInformation})`;
    }
 
+   content += "</span>";
+
    if(universityInformation.founder) {
-      content += `<br><br>Founder: ${universityInformation.founder}`;
+      content += `<span>Founder: ${universityInformation.founder}</span>`;
    }
 
    if(universityInformation.head) {
-      content += `<br><br>Head: ${universityInformation.head}`;
+      content += `<span>Head: ${universityInformation.head}</span>`;
    }
 
    if(universityInformation.contact) {
-      content += `<br><br>Contact: ${universityInformation.contact}`;
+      content += `<span>Contact: ${universityInformation.contact}</span>`;
    }
 
    if(universityInformation.degrees) {
-      content += `<br><br>Degrees offered: ${universityInformation.degrees}`;
+      content += `<span>Degrees offered: ${universityInformation.degrees}</span>`;
    }
 
    if(universityInformation.links) {
-      content += `<br><br>Links: ${universityInformation.links.split(";").map(link => `<a href="${link}" target="_blank">${link}</a>`)}`;
+      content += `<span>Links: ${universityInformation.links.split(";").map(link => `<a href="${link}" target="_blank">${link}</a><br>`)}</span>`;
    }
 
    document.querySelector(".info-headline").textContent = universityInformation.name;
    document.querySelector(".info-content").innerHTML = content;
    document.querySelector(".info-layout").style.display = "flex";
    document.querySelector(`.map-pointer-${universityId}`).classList.add("active-pointer");
+}
+
+function hideUniversityDetails() {
+   document.querySelector(".info-headline").textContent = "";
+   document.querySelector(".info-content").innerHTML = "";
+   document.querySelector(".info-layout").style.display = "none";
+   document.querySelector(`.active-pointer`).classList.remove("active-pointer");
 }
 
 var slider = document.getElementById("myRange");
@@ -252,4 +267,16 @@ output.innerHTML = slider.value;
 slider.oninput = function() {
   output.innerHTML = this.value;
   showUniversitiesForYear(this.value);
+}
+
+let usaMap = document.querySelector(".usa-map");
+
+function usaMapLoaded() {
+   document.querySelector(".popup-positioning").style.backgroundColor = "rgba(0,0,0,0.4)";
+}
+
+if(usaMap.complete) {
+   usaMapLoaded();
+} else {
+   usaMap.addEventListener("load", usaMapLoaded);
 }
