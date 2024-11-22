@@ -1,7 +1,7 @@
 *{
     box-sizing: border-box;
     margin: 0;
-  font-family: "EB Garamond", serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
@@ -149,14 +149,6 @@ body {
     background-color: #d5a6bd;
 }
 
-.alternate-color {
-    background-color: #408875ed;
-}
-
-.faded.alternate-color {
-    background-color: #4d5433ed;
-}
-
 .info-content {
     display: flex;
     flex-direction: column;
@@ -250,8 +242,7 @@ body {
 }
 
 .dot-explanations {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
     gap: 10px;
     justify-content: space-between;
     width: 100%;

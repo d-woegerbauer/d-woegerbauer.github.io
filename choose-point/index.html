@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Visualization of university programs</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="map-slider-layout">
+      <div class="map-info-layout">
+        <div class="usa-map-layout">
+          <img class="usa-map" src="../USCanadaMap.svg" alt="US Canada Map" />
+          <div class="map-points"></div>
+          <button
+            class="show-help"
+            onclick="document.querySelector('.popup-positioning').style.display='flex';"
+          >
+            ?
+          </button>
+        </div>
+        <div class="info-layout">
+          <button onclick="hideUniversityDetails()">X</button>
+          <h2 class="info-headline">university name</h2>
+          <div class="info-content">university description</div>
+        </div>
+      </div>
+      <p>Year: <span id="demo"></span></p>
+      <div class="slider-layout">
+        <p>1930</p>
+        <input
+          type="range"
+          min="1930"
+          max="2025"
+          value="1990"
+          class="slider"
+          id="myRange"
+        />
+        <p>2025</p>
+      </div>
+    </div>
+  </body>
+</html>
