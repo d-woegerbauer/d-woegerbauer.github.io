@@ -16,20 +16,22 @@
   <body>
     <div class="popup-positioning">
       <div class="pop-up-layout">
-        <h1>Visualization of university programs</h1>
+        <h1>Visualization of UNIVERSITY PROGRAMS</h1>
         <p>
-          This data visualization, published in connection with the fourth
-          chapter of Accompaniment in America: Contextualizing Collaborative
-          Piano (2025, Routledge) traces the history and evolution of
-          collaborative piano programs across North America, contextualizing the
-          development of this discipline in academic settings. With a timeline
-          spanning from the 1930s to 2025, it offers users a dynamic,
-          interactive map where degree-giving programs are marked according to
-          founding date, current status, and notable affiliations. Dots appear
-          as the user scrolls along the timeline, indicating each program’s
-          location and legacy as they emerge. Programs connected to Gwendolyn
-          Koldofsky—the pioneering figure of collaborative piano pedagogy—are
-          colored in Bordeaux to signify her legacy.
+          This data visualization, published in connection with the hybrid
+          monograph & digital publication Accompaniment in America:
+          Contextualizing Collaborative Piano (2025, Routledge) traces the
+          history and evolution of collaborative piano programs across North
+          America, contextualizing the development of this discipline in
+          academic settings. With a timeline from the 1930s to 2025, it offers
+          users a dynamic, interactive map where degree-giving programs are
+          marked according to founding date, current status, and notable
+          affiliations. Dots appear as the user scrolls along the timeline,
+          indicating each program’s location, status, and legacy as they emerge.
+          Programs that have or have had a strong connection to the Gwendolyn
+          Koldofsky legacy are colored blue/purple, all other existing programs
+          are orange. Now defunct programs are pink, while programs for which
+          little to no information about their origins is known are turquoise.
           <br /><br />
           Designed by Chanda VanderHart and programmed by David Wögerbauer, this
           visualization offers a layered, narrative-driven exploration of
@@ -37,43 +39,38 @@
           program’s history by selecting individual points on the map, which
           reveal details about the program’s founder, year of establishment, and
           current leadership. Programs that have lost funding or ceased
-          operation appear as faded markers, underscoring changes in the field
-          over time.
+          operation appear in pink, underscoring changes in the field over time.
           <br />
           <br />
-          The data, gathered by Lauren Koszyk and Chanda VanderHart with the
-          assistance of Elvia Puccinelli, Jean Barr, and Kathleen Kelly,
-          reflects contributions from faculty members, administrators, and
-          archivists. As the field and knowledge about it continues to evolve,
-          users are encouraged to contribute updates or corrections to ensure
-          ongoing accuracy. This project stands as a testament to the
-          collaborative spirit inherent in the discipline and offers a rich
-          resource for understanding its historical and pedagogical landscape.
+          The data, gathered by Lauren Koszyk and Chanda VanderHart with help
+          from Elvia Puccinelli, Jean Barr, and Kathleen Kelly, reflects
+          contributions from faculty members, administrators, and archivists. As
+          knowledge of the field continues to evolve, users are encouraged to
+          contribute updates or corrections to ensure ongoing accuracy. This
+          project is designed to reflect the collaborative spirit of the
+          discipline and to offer a rich resource for understanding its
+          historical and pedagogical landscape.
         </p>
         <div class="dot-explanations">
           <div class="dot-explanation">
             <div class="map-pointer"></div>
-            Standard
+            Standard Programs
           </div>
           <div class="dot-explanation">
-            <div class="map-pointer color"></div>
-            Kodolfsky
+            <div class="map-pointer purple"></div>
+            Koldofsky Legacy
           </div>
           <div class="dot-explanation">
-            <div class="map-pointer alternate-color"></div>
-            Alternate color
+            <div class="map-pointer turquoise"></div>
+            Origins Unknown
           </div>
           <div class="dot-explanation">
-            <div class="map-pointer faded"></div>
-            Ended programs
+            <div class="map-pointer pink"></div>
+            Discontinued
           </div>
           <div class="dot-explanation">
-            <div class="map-pointer faded alternate-color"></div>
-            Ended programs alternate
-          </div>
-          <div class="dot-explanation">
-            <div class="map-pointer active-pointer"></div>
-            Current selection
+            <div class="map-pointer active-pointer-fixed"></div>
+            Current Selection
           </div>
         </div>
         <button
@@ -94,6 +91,30 @@
           >
             ?
           </button>
+          <div class="dot-explanation-map-positioning">
+            <div class="dot-explanations">
+              <div class="dot-explanation">
+                <div class="map-pointer"></div>
+                Standard Programs
+              </div>
+              <div class="dot-explanation">
+                <div class="map-pointer purple"></div>
+                Koldofsky Legacy
+              </div>
+              <div class="dot-explanation">
+                <div class="map-pointer turquoise"></div>
+                Origins Unknown
+              </div>
+              <div class="dot-explanation">
+                <div class="map-pointer pink"></div>
+                Discontinued
+              </div>
+              <div class="dot-explanation">
+                <div class="map-pointer active-pointer-fixed"></div>
+                Current Selection
+              </div>
+            </div>
+          </div>
         </div>
         <div class="info-layout">
           <button onclick="hideUniversityDetails()">X</button>
@@ -101,6 +122,10 @@
           <div class="info-content">university description</div>
         </div>
       </div>
+      <p class="timeline-explanation">
+        Scroll along the timeline to see program growth and click on individuals
+        dots to access detailed content.
+      </p>
       <p>Year: <span id="demo"></span></p>
       <div class="slider-layout">
         <p>1930</p>

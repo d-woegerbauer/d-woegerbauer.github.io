@@ -141,20 +141,16 @@ body {
     cursor: pointer;
 }
 
-.color {
+.purple {
     background-color: #56518e;
 }
 
-.faded {
+.pink {
     background-color: #d5a6bd;
 }
 
-.alternate-color {
+.turquoise {
     background-color: #408875ed;
-}
-
-.faded.alternate-color {
-    background-color: #4d5433ed;
 }
 
 .info-content {
@@ -245,8 +241,8 @@ body {
     background-color: #f0c884;
 }
 
-.active-pointer {
-    background-color: white;
+.active-pointer, .active-pointer-fixed {
+    background-color: white !important;
 }
 
 .dot-explanations {
@@ -273,4 +269,40 @@ body {
 
 .dot-explanation .map-pointer:hover {
     opacity: 1;
+}
+
+.dot-explanation-map-positioning {
+    position: absolute;
+    bottom: 30px;
+    right: 25%;
+}
+
+.dot-explanation-map-positioning .dot-explanations {
+    background-color: #f0c884;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+@media only screen and (max-width: 1120px) {
+    .dot-explanation-map-positioning .dot-explanations {
+        gap: 4px;
+    }
+
+    .dot-explanation-map-positioning .dot-explanation {
+        gap: 4px;
+    }
+
+    .dot-explanation-map-positioning {
+        bottom: 10px;
+    }
+
+    .dot-explanation-map-positioning .dot-explanations {
+        padding: 10px;
+        font-size: 0.8rem;
+    }
+}
+
+.timeline-explanation {
+    border-bottom: solid black 1px;
+    padding-bottom: 20px;
 }
